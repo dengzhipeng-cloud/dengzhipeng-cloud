@@ -1,4 +1,4 @@
-python蟒蛇
+# python蟒蛇
 import turtle
 def snake(radius, angle, length):
 turtle.seth(-40)
@@ -18,7 +18,7 @@ turtle.pencolor("purple")
 snake(40, 80, 4)
 turtle.done()
 
-天天向上
+# 天天向上
 def dayup(df):
 dayup = 1.0
 for i in range(365):
@@ -46,7 +46,7 @@ print(f"\r{c:^3.0f}%[{a}->{b}]{-t:.2f}s",end='')
 time.sleep(0.05)
 print("\n"+"执行结束".center((scale//2,'-')))
 
-七段数码管绘制当前日期
+# 七段数码管绘制当前日期
 import datetime,turtle
 def drawgap():#绘制数码管间隔
 turtle.penup()
@@ -92,7 +92,7 @@ turtle.pensize(5)
 drawdate(datetime.datetime.now().strftime('%Y-%m=%d+'))
 main()
 
-科赫曲线绘制
+# 科赫曲线绘制
 import turtle
 def koch(size, n):
 if n ==0:
@@ -117,3 +117,34 @@ turtle.right(120)
 koch(400, leave)
 turtle.hideturtle()
 main()
+
+# 基本统计值计算
+from math import sqrt
+def getnum():
+    nums = []
+    inumstr = input("请输入数字：")
+    while inumstr != "":
+        nums.append(eval(inumstr))
+        inumstr = input("请输入数字：")
+    return nums
+def mean(numbers):#计算平均值
+    s = 0.0
+    for num in numbers:
+        s = s + num
+    return s / len(numbers)
+def dev(numbers,mean):#计算方差
+    sdev = 0.0
+    for num in numbers:
+        sdev = sdev + (num -mean)**2
+    return sqrt(sdev / (len(numbers)-1))
+def median(numbers):#计算中位数
+    sorted(numbers)
+    size = len(numbers)
+    if size % 2 == 0:
+        med = (numbers[size//2-1] + numbers[size//2])/2
+    else:
+        med = numbers[size//2]
+    return med
+n = getnum()
+m = mean(n)
+print(f"平均值：{m},方差：{dev(n,m)},中位数：{median(n)}")
