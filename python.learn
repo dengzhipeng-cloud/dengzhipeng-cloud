@@ -1,12 +1,345 @@
-- 👋 Hi, I’m @dengzhipeng-cloud
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+print("hello world !!!") # 打印hello world
 
-<!---
-dengzhipeng-cloud/dengzhipeng-cloud is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+字面量
+666
+13.14
+"牛马"
+print(666)
+print(13.14)
+print("牛马")
+
+变量
+定义一个变量，用来定义钱包余额
+money = 50
+
+输出变量内容
+print("钱包还有:",money)
+
+买了一个冰淇凌，花费10元
+momey = money - 10
+print("买了一个冰淇凌，花费10元，还剩余:",money,"元")
+
+数据类型（int-整型，string-字符串，float-浮点型）
+输出类型信息
+print(type("牛马"))
+print(type(666))
+print(type(13.14))
+
+记录类型信息
+string_type = type("牛马")
+print(string_type)
+
+数据类型转换
+num_str = str(666)
+print(type(num_str),num_str)# 数字类型转换成字符串
+num_int = int("666")
+print(type(num_int),num_int)# 字符串转换成数字类型，必须要求字符串内的内容都是数字
+num_float = float(666)
+print(type(num_float),num_float)# 整数转换浮点数
+
+标识符(英文，中文，数字，下划线）
+运算符（+，-，*，/，//整除，%取余，**指数）
+字符串格式化
+#name = "传智播客"
+#stock_code = "003032"
+#stock_peice = 19.99
+#stock_price_daily_growth_factor = 1.2
+#growth_days = 7
+#finally_stock_price = stock_peice * stock_price_daily_growth_factor ** growth_days
+
+#print(f"公司：{name}，股票代码：{stock_code}，当前股价{stock_peice}")
+#print("每日增长系数；%.1f,经过%d天的增长后,股价达到了；%.2f" % (stock_price_daily_growth_factor, growth_days, finally_stock_price))
+
+input语句
+#name = input("请告诉我你的名字：")
+#print("我知道了，你是：%s" % name)
+
+斐波那契数列计算
+#a,b = 0, 1
+#while a < 1000:
+
+print(a, end = ",")
+a, b = b, a + b
+if语句
+if int(input("输入身高：")) < 120:
+print("小于120，可以免费。")
+elif int(input("vip等级（1-5）")) > 3:
+print("vip等级大于3，可以免费。")
+elif int(input("今天是几号")) == 1:
+print("今天是1号，可以免费。")
+else:
+print("不好意思，需要购票。")
+打印99乘法表（while循环和for循环）
+i = 1 #定义外层变量
+while i <= 9:
+j = 1 #定义内层循环变量
+while j <= i:
+print(f"{j} * {i} = {j * i}\t", end='')
+j += 1
+i += 1
+print() #print空内容，输出一个换行
+
+通过外层循环控制行数
+for i in range(1, 10):
+# 通过内层循环控制每一行的数据
+for j in range(1, i + 1):
+print(f"{j} * {i} = {j * i}\t", end='') # 在内层循环中输出每一行的内容
+# print输出一个空内容来换行
+print()
+
+continue和break的运用(发工资）
+money = 10000
+for i in range(1, 21):
+import random
+score = random.randint(1, 10)
+if score < 5:
+print(f"员工{i}绩效分{score}，不满足，下一位")
+continue #continue跳过
+if money >= 1000:
+money -= 1000
+print(f"员工{i}，满足条件，发1000，剩余{money}")
+else:
+print("余额不足，当前余额：{money}，下个月发")
+break #break结束发放
+
+函数的学习（自动查核酸）
+def num():
+print("欢迎到来")
+print("请出示核酸码")
+
+num()
+
+ATM案例
+money = 5000000
+name = None
+name = input("请输入你的名字：")
+def check_money(show_header):
+if show_header:
+print("------查询余额------")
+print(f"{name},你的余额为：{money}元")
+def save_money(num):
+global money # global定义全局变量money
+money += num
+print("------存款------")
+print(f"{name},你存款{num}元成功。")
+check_money(False)
+def get_money(num):
+global money # global定义全局变量money
+if num >= money:
+print("余额不足，操作失败")
+return main()
+money -= num
+print("------取款------")
+print(f"{name},你取款{num}元成功。")
+check_money(False)
+def main():
+print("------主菜单------")
+print(f"{name},你好，欢迎到来，请操作：")
+print("查询余额\t[输入1]")
+print("存款\t\t[输入2]")
+print("取款\t\t[输入3]")
+print("退出\t\t[输入4]")
+return input("请输入你的选择：")
+
+while True:
+keyboard_input = main()
+if keyboard_input == "1":
+check_money(True)
+continue
+elif keyboard_input == "2":
+num = int(input("你想要存多少钱？请输入："))
+save_money(num)
+continue
+elif keyboard_input == "3":
+num = int(input("你想要取多少钱？请输入："))
+get_money(num)
+continue
+else:
+print("程序退出")
+break
+
+list常用操作
+mylist = [21, 25,21,23,22,20]
+
+追加一个数字31到列表尾部
+mylist.append(31)
+
+追加一个新列表到尾部
+mylist.extend([29, 33,30])
+
+取出第一个元素21
+num1 = mylist[0]
+print(f"列表第一个元素{num1}")
+
+取出最后一个元素30
+num2 = mylist[-1]
+print(f"最后一个元素{num2}")
+
+查找31在列表的下标位置
+index = mylist.index(31)
+print(f"最后列表的内容：{mylist}")
+print(f"31的位置：{index}")
+
+列表的遍历（while循环和for循环）
+def list_while_func():
+my_list = ["牛马", "666", "python"]
+index = 0
+while index < len(my_list):
+elemet = my_list[index]
+print(f"列表的元素：{elemet}")
+index += 1
+
+def list_for_func():
+my_list = [1, 2, 3, 4, 5]
+for element in my_list:
+print(f"列表的元素：{element}")
+
+list_for_func()
+list_while_func()
+
+list1 = [1, 2, 3 ,4 ,5 ,6 ,7 ,8 ,9, 10]
+list2 = []
+index = 0
+while index < len(list1):
+element = list1[index]
+if element %2 == 0:
+list2.append(element)
+index += 1
+print(list2)
+
+list1 = [1, 2, 3 ,4 ,5 ,6 ,7 ,8 ,9, 10]
+list2 = []
+for element in list1:
+if element %2 == 0:
+list2.append(element)
+print(list2)
+
+元组学习
+#定义元组，元组不可修改，只读
+t1 = (1, 2, 2, 2, 3)
+t2 = (1,)
+t3 = tuple()
+
+通过index来查找元组中的元素
+index = t1.index(2)
+print(f"{index}")
+
+count统计元组中某个元素的个数
+num = t1.count(2)
+print(f"{num}")
+
+len()函数统计元组元素的数量
+num1 = len(t1)
+print(f"{num1}")
+
+while循环遍历
+index = 0
+while index < len(t1):
+print(f"元素有：{t1[index]}")
+index += 1
+
+for循环遍历
+for element in t1:
+print(f"元素有：{element}")
+
+字符串学习
+replace方法（替换）
+my_str = "牛马, python"
+my_new_str = my_str.replace("牛马","程序")
+print(f"{my_new_str}")
+
+split方法（切分）
+my_str_list = my_str.split(" ")
+print(f"{my_str_list}")
+
+strip方法（不传入参数，去除首尾空格）
+my_str1 = " 111, python "
+my_new_str1 = my_str1.strip()
+print(f"{my_new_str1}")
+
+count统计某字符串的出现次数
+len（）统计长度
+对list进行切片。语法：序列[起始下标：结束下标：步长]
+my_str1 = "万过薪月，员序程马黑来，nohtyp学"#得到“黑马程序员”
+my_str2 = my_str1[::-1]
+print(f"{my_str2}")
+my_str3 = my_str2[9:14:1]
+print(f"{my_str3}")
+my_str4 = my_str3.split()
+print(f"{my_str4}")
+
+集合set{}的学习：不可重复，无序。
+my_set = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1}
+
+add添加新元素
+my_set.add(10)
+
+remove移除元素
+my_set.remove(4)
+
+pop随机取出一个元素
+element = my_set.pop()
+
+clear清空集合
+my_set.clear()
+
+difference消除差集
+union合并集合
+集合只能用for循环
+set = {1,2,3,4,5}
+for element1 in set:
+print(f"{element1}")
+
+信息去重
+my_list = [1,2,3,3,5,6,4,4,5]
+set1 = set()
+for element in my_list:
+print(f"{element}")
+set1.add(element)
+print(f"{set1}")
+
+字典dict{}的学习，格式dict{key:value, key:value},可更新元素，新增元素。
+my_dict = {"a":99, "b":87, "c":68}
+
+新增元素
+my_dict["d"] = 100
+
+更新元素
+my_dict["c"] = 89
+
+删除元素
+score = my_dict.pop("a")
+
+获取全部的key
+keys = my_dict.keys()
+
+遍历字典
+for key in my_dict:
+print(f"{key}")
+print(f"{my_dict[key]}")
+
+文本读写操作
+fr = open("D:/dev/python/python.learn/bill.txt", "r", encoding="UTF-8")
+fw = open("D:/dev/python/python.learn/bill.txt.bak", "w", encoding="UTF-8")
+count = 0
+for line in fr:
+line = line.strip()
+if line.strip(",")[0] == 1:
+count += 1
+continue
+fw.write(line)
+fw.write("\n")
+fr.close()
+fw.close()
+print(f"{count}")
+
+异常检测 try-execpt
+try:
+num = eval(input("整数:"))
+print(num ** 2)
+except:
+print("输入错误，请输入整数！")
+else:
+print("其他错误")
+finally:
+print("结束"）
