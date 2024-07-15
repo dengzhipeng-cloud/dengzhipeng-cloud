@@ -343,3 +343,19 @@ else:
 print("其他错误")
 finally:
 print("结束"）
+
+# t = hex(65536)
+# print(f"{t}")
+
+# ls = [[2,3,7],[[3,5],25],[0,9]]
+# t = len(ls)
+# print(f"{t}")
+
+# from PIL import Image
+# im = Image.open("D:\\dev\\python\\python.learn\\R-C.jfif")
+
+
+# fo = open("price2024bj.csv","w")
+# ls = ['北京','101.5','120.7','121.4']
+# fo.write(",".join(ls)+ "\n")
+# fo.close()
